@@ -1,0 +1,66 @@
+<html>
+<head>
+     <title> App by Snehal Barkale </title>
+     <style>
+        *{font-size:50px;font-family:Calibri;}
+     </style>
+     <script>
+     function show()
+     {
+        event.preventDefault();
+        let name=document.getElementById("name");
+
+        if (name.value=="")
+        {
+          alert("please enter a vaild name");
+          name.focus();
+          ans.innerHTML="";
+          return;
+        }
+
+
+       else if (name.value.trim()=="")
+        {
+          alert("name should not be only spaces");
+          name.value="";
+          name.focus();
+          ans.innerHTML="";
+          return;
+        }
+
+       else if (! name.value.match(/^[A-Za-z ]+$/))
+        {
+          alert("name should contain only alphabets");
+          name.value="";
+          ans.innerHTML="";
+          name.focus();
+          return;
+        }
+        
+         let ans=document.getElementById("ans");
+         let d=new Date();
+         let hr=d.getHours();
+         let msg="";
+         if (hr<12)        msg="Good Morning";
+         else if (hr<16)   msg="Good Afternoon";
+         else              msg="Good Evening";
+         ans.innerHTML=msg+" "+name.value;
+        }
+
+
+     </script>
+</head>
+<body>
+<center>
+    <h1>Welcome App</h1>
+    <form onsubmit="show()">
+        <input type="text" placeholder="enter your name" id="name"/>
+        <br><br>
+        <input type="submit"
+         style="background-color:red;color:white;"
+         value="welcome"/>
+      </form>
+      <h1 id ="ans"></h1>
+</center>
+</body>
+</html>
